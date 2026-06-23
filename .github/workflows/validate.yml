@@ -1,0 +1,28 @@
+name: Validate Tap
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: macos-latest
+    steps:
+      - name: Check out tap
+        uses: actions/checkout@v4
+
+      - name: Check for formulas
+        id: formulas
+        shell: bash
+        run: |
+          set -euo pipefail
+          if compgen -G "Formula/*.rb" > /dev/null; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No formulas found; skipping Homebrew formula validation."
+          fi
+
+      - name: Run Homebrew tap syntax validation
+        if: steps.formulas.outputs.present == 'true'
+        run: brew test-bot --only-tap-syntax
