@@ -1,8 +1,8 @@
 class Bon < Formula
   desc "Receipt-printer CLI for PDFs, images, Typst, and LaTeX"
   homepage "https://github.com/rbq/bon"
-  url "https://github.com/rbq/bon/archive/refs/tags/v0.1.7.tar.gz"
-  sha256 "c6a6e16fe1359b04a4d4786654a0aba7c7e8290b34bb3df38d8e44a02e658089"
+  url "https://github.com/rbq/bon/archive/refs/tags/v0.1.10.tar.gz"
+  sha256 "60aa4b6f46be8241f054e0690061ed20702d5379615229ce00b2fbddabf0a593"
   license "MIT"
 
   head "https://github.com/rbq/bon.git", branch: "main"
@@ -12,6 +12,7 @@ class Bon < Formula
 
   def install
     bin.mkpath
+    system "shards", "install", "--production"
     system "crystal", "build", "src/bon.cr", "--release", "--no-debug", "-o", bin/"bon"
   end
 
