@@ -1,8 +1,8 @@
 class Bon < Formula
   desc "Receipt-printer CLI for PDFs, images, Typst, and LaTeX"
   homepage "https://github.com/rbq/bon"
-  url "https://github.com/rbq/bon/archive/refs/tags/v0.1.10.tar.gz"
-  sha256 "60aa4b6f46be8241f054e0690061ed20702d5379615229ce00b2fbddabf0a593"
+  url "https://github.com/rbq/bon/archive/refs/tags/v0.1.11.tar.gz"
+  sha256 "a77efeacdcf825a726e8d238b7c93fc1f852329634c1e24bf3952b791264fc3f"
   license "MIT"
 
   head "https://github.com/rbq/bon.git", branch: "main"
