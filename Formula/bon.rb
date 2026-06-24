@@ -7,6 +7,14 @@ class Bon < Formula
 
   head "https://github.com/rbq/bon.git", branch: "main"
 
+  bottle do
+    root_url "https://github.com/rbq/bon/releases/download/v0.1.11"
+    rebuild 1
+    sha256 cellar: :any, arm64_sequoia: "3e4547dccdec4b56e55527dd36179466556e48d6a7c76cd46a9e5c73d823dff6"
+    sha256 cellar: :any, sequoia:       "25db019453162ba2f9b67a106f049f6f338d596a6d36b9c58bc5393bd17c15e4"
+    sha256 cellar: :any, x86_64_linux:  "6697b046f28255798be5cd4c75a7edf8a795b36346c1b7913e229dd0b5031066"
+  end
+
   depends_on "crystal" => :build
   depends_on "ghostscript"
 
